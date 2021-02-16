@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parky", "Parky\Parky.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkyAPI", "ParkyAPI\ParkyAPI.csproj", "{37E8DC6E-F1A8-4493-B892-8E24BE3F5F94}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F349AB1D-2987-40B8-9F3A-C660BDF70FEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37E8DC6E-F1A8-4493-B892-8E24BE3F5F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37E8DC6E-F1A8-4493-B892-8E24BE3F5F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37E8DC6E-F1A8-4493-B892-8E24BE3F5F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F349AB1D-2987-40B8-9F3A-C660BDF70FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F349AB1D-2987-40B8-9F3A-C660BDF70FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F349AB1D-2987-40B8-9F3A-C660BDF70FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F349AB1D-2987-40B8-9F3A-C660BDF70FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
