@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,8 +35,24 @@ namespace ParkyAPI
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
+
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
+
             services.AddAutoMapper(typeof(ParkyMappings));
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("ParkyOpenAPISpec", new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+                    Title = "Parky API",
+                    Version = "1"
+                });
+
+                //var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var cmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
+                //options.IncludeXmlComments(cmlCommentsFullPath);
+            });
+
             services.AddControllers();
         }
 
@@ -47,6 +65,13 @@ namespace ParkyAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/ParkyOpenAPISpec/swagger.json", "Parky API");
+                options.RoutePrefix = "";
+            });
 
             app.UseRouting();
 
